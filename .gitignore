@@ -1,0 +1,28 @@
+# Python and local environments
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ruff_cache/
+*.egg-info/
+.ipynb_checkpoints/
+# Machine-local and generated artifacts
+/data/raw/*
+!/data/raw/.gitkeep
+/data/processed/*
+!/data/processed/.gitkeep
+/data/distractors/*
+!/data/distractors/.gitkeep
+/outputs/checkpoints/*
+!/outputs/checkpoints/.gitkeep
+/outputs/figures/*
+!/outputs/figures/.gitkeep
+/outputs/metrics/*
+!/outputs/metrics/.gitkeep
+/research/papers/*
+!/research/papers/.gitkeep
+.env
+.env.*
+!.env.example
+.DS_Store
+Thumbs.db

@@ -1,0 +1,74 @@
+title: "When Does Neural Memory Fail? Investigating Distractors in Multi-Hop Reasoning"
+students:
+  - "Bjibji Hamza"
+  - "Elbouk Abderrahimane"
+description: >-
+  Can neural networks retrieve relevant information when surrounded by
+  distracting facts? We propose implementing an End-to-End Memory Network
+  from scratch, based on the 2015 research paper. Using the bAbI
+  question-answering dataset, we will compare memory-hop configurations
+  and investigate how irrelevant sentences affect performance to better
+  understand attention-based memory in multi-fact reasoning.
+
+thumbnail: "Multi-Hop Memory Network Diagram.png"
+thumbnail_alt: >-
+  Academic diagram showing external memory, relevant and distracting
+  sentences, and attention-based retrieval across three memory hops.
+thumbnail_credit: "Original AI-assisted illustration by the team"
+
+proposal:
+  question: >-
+    How does the number of memory hops affect a MemN2N model's ability
+    to answer multi-fact questions as irrelevant sentences are added?
+
+  dataset:
+    name: "Facebook bAbI Question Answering Dataset"
+    source: "https://huggingface.co/datasets/facebook/babi_qa"
+    access_and_terms: >-
+      Publicly accessible under CC BY 3.0; we will provide attribution.
+    scope: >-
+      We will use the English QA1, QA2, and QA3 tasks, requiring one,
+      two, and three supporting facts respectively, from the en-valid-10k
+      configuration. Data consist of synthetic stories, questions, and
+      answers, with no real personal information. Each task has 1,800
+      training, 200 validation, and 200 test story records; records may
+      contain multiple questions.
+
+  approach: >-
+    We will implement End-to-End Memory Networks (Sukhbaatar et al.,
+    NeurIPS 2015) in PyTorch, including trainable word embeddings,
+    sentence memories, attention-based retrieval, iterative memory
+    hops, and answer prediction. A bag-of-words question-answering
+    classifier will serve as a baseline. No pretrained weights or
+    ready-made memory-network implementations will be used.
+
+  evaluation: >-
+    We will preserve the dataset's train, validation, and test partitions,
+    check for duplicated stories, and derive vocabulary from training
+    data only. We will report exact-match answer accuracy per task and
+    distractor condition, compare against the baseline, and examine
+    example-level errors and attention heatmaps. Fixed random seeds and,
+    where feasible, repeated runs will support reproducibility.
+
+  experiment: >-
+    We will compare one-hop and three-hop models while holding the
+    embedding size and training settings fixed. Both will be tested
+    with 0, 5, 10, and 20 added irrelevant sentences. Distractors will
+    preserve the correct answer, and memory capacity will accommodate
+    all sentences. We hypothesize that additional hops may improve
+    multi-fact accuracy and reduce sensitivity to distractors.
+
+  feasibility: >-
+    The four-week project uses Python, PyTorch, and the lightweight
+    bAbI dataset. A local Intel Core i7 machine with an NVIDIA RTX 3060
+    (8 GB VRAM) and 16 GB RAM is available. We will use compact
+    embeddings (32 or 64 dimensions) and a limited experiment grid.
+    Main risks are implementation complexity, training convergence,
+    and time. If necessary, we will focus on QA1 and QA2 and reduce
+    the hop and distractor configurations while retaining the core
+    research question.
+
+  team_roles: >-
+    Both team members will collaborate on paper analysis, model
+    implementation, experiments, evaluation, and the final report
+    and presentation, sharing responsibility across project stages.

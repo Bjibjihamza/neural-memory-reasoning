@@ -1,0 +1,24 @@
+# Planned settings only — not measured results.
+project: neural-memory-distractors
+benchmark:
+  dataset: facebook/babi_qa
+  configurations:
+    - en-valid-10k-qa1
+    - en-valid-10k-qa2
+    - en-valid-10k-qa3
+  splits: [train, validation, test]
+models:
+  - name: bag_of_words_baseline
+  - name: memn2n_1hop
+    hops: 1
+  - name: memn2n_3hop
+    hops: 3
+training:
+  embedding_dim: 32
+  seed: 42
+  # Other hyperparameters will be chosen on validation data.
+evaluation:
+  distractor_counts: [0, 5, 10, 20]
+  primary_metric: exact_match_accuracy
+  diagnostic: attention_visualization
+  extra_seed_runs_if_feasible: [43, 44]

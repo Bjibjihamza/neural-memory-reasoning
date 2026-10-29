@@ -1,0 +1,15 @@
+{
+  "story": {
+    "id": ["1", "2", "3", "4", "5"],
+    "type": [0, 0, 1, 0, 1],
+    "text": [
+      "Mary went to the kitchen.",
+      "John went to the garden.",
+      "Where is Mary?",
+      "Mary travelled to the hallway.",
+      "Where is Mary?"
+    ],
+    "answer": ["", "", "kitchen", "", "hallway"],
+    "supporting_ids": [[], [], ["1"], [], ["4"]]
+  }
+}

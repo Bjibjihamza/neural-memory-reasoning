@@ -1,0 +1,3 @@
+model: bag_of_words_baseline
+seed: 42
+# Implementation and hyperparameters will be defined in Milestone M2.

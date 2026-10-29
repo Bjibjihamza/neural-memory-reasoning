@@ -1,0 +1,30 @@
+[build-system]
+requires = ["hatchling>=1.25"]
+build-backend = "hatchling.build"
+
+[project]
+name = "neural-memory-research"
+version = "0.1.0"
+description = "CS 351 research workstation for MemN2N robustness experiments"
+readme = "README.md"
+requires-python = ">=3.11,<3.13"
+license = { text = "For academic coursework; license to be selected before public release" }
+dependencies = [
+    "pyyaml>=6.0,<7",
+]
+
+[project.optional-dependencies]
+dev = ["pytest>=8,<10", "ruff>=0.9,<1"]
+notebook = ["ipykernel>=6,<8", "jupyterlab>=4,<5", "pandas>=2.2,<3", "matplotlib>=3.8,<4"]
+# Install an appropriate PyTorch CUDA build separately following the setup guide.
+ml = ["torch>=2.4,<3", "numpy>=1.26,<3", "tqdm>=4.66,<5"]
+data = ["datasets>=3.6,<5"]
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/memn2n"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100

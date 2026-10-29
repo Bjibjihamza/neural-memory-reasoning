@@ -1,0 +1,10 @@
+# Fill after acquiring the official source. No actual download completed yet.
+dataset: facebook/babi_qa
+source: https://huggingface.co/datasets/facebook/babi_qa
+license: CC-BY-3.0
+configs: [en-valid-10k-qa1, en-valid-10k-qa2, en-valid-10k-qa3]
+revision: null
+acquired_at_utc: null
+splits_verified: false
+source_checksums: []
+notes: "Story records can contain multiple questions; validate question-level counts."

@@ -1,0 +1,5 @@
+model: memn2n
+hops: 3
+embedding_dim: 32
+seed: 42
+# Training parameters TBD after tiny-batch validation.

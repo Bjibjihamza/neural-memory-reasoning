@@ -213,16 +213,3 @@ Backpropagation → Update Parameters
 
 **Hypothesis:** Multiple hops may help retrieve and combine supporting facts, but robustness to distractors must be measured experimentally.
 
----
-
-## 9. Essential Concepts Checklist
-
-- [ ] Word embeddings and matrix dimensions
-- [ ] Dot product and Softmax
-- [ ] Attention and weighted sum
-- [ ] Multi-hop retrieval
-- [ ] Cross-entropy and backpropagation
-- [ ] Position and temporal encoding
-- [ ] bAbI dataset and experiment design
-
-**Key takeaway:** MemN2N learns to retrieve and combine information from external memory using attention, with the entire model trained through the final answer prediction.

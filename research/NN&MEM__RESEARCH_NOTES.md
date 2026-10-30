@@ -89,23 +89,23 @@ Can a neural network:
 
 Convert sentence representations into memory vectors:
 
-\[
-m_i=Ax_i
-\]
+$$
+m_i = A x_i
+$$
 
-- \(x_i\): vector representation of sentence \(i\)
-- \(A\): trainable embedding matrix
-- \(m_i\): input memory vector
+- $x_i$: vector representation of sentence $i$
+- $A$: trainable embedding matrix
+- $m_i$: input memory vector
 
 Embed the question:
 
-\[
-u=Bq
-\]
+$$
+u = B q
+$$
 
-- \(q\): question representation
-- \(B\): question embedding matrix
-- \(u\): internal question vector
+- $q$: question representation
+- $B$: question embedding matrix
+- $u$: internal question vector
 
 **Concepts:** Tokenization, embeddings, matrix multiplication.
 
@@ -113,25 +113,25 @@ u=Bq
 
 Compare the question vector with each memory vector:
 
-\[
-p_i=\frac{\exp(u^\top m_i)}{\sum_j\exp(u^\top m_j)}
-\]
+$$
+p_i = \frac{\exp(u^\top m_i)}{\sum_j \exp(u^\top m_j)}
+$$
 
-- \(u^\top m_i\): similarity score
+- $u^\top m_i$: similarity score
 - Softmax: normalizes attention weights across memory slots
-- \(p_i\): attention weight for memory \(i\)
+- $p_i$: attention weight for memory $i$
 
 **Goal:** Assign greater weight to relevant memories.
 
 ### Step C — Memory Retrieval
 
-\[
-o=\sum_i p_i c_i
-\]
+$$
+o = \sum_i p_i c_i
+$$
 
-- \(c_i=Cx_i\): output memory vector
-- \(p_i\): attention weight
-- \(o\): weighted memory output
+- $c_i = C x_i$: output memory vector
+- $p_i$: attention weight
+- $o$: weighted memory output
 
 **Concept:** Weighted sum of memory representations.
 
@@ -139,12 +139,12 @@ o=\sum_i p_i c_i
 
 For a single-hop model:
 
-\[
-\hat a=\operatorname{softmax}(W(o+u))
-\]
+$$
+\hat{a} = \operatorname{softmax}(W(o + u))
+$$
 
-- \(W\): trainable output projection
-- \(\hat a\): probability distribution over possible answers
+- $W$: trainable output projection
+- $\hat{a}$: probability distribution over possible answers
 
 **Task:** Answer classification (e.g., garden, kitchen, office).
 
@@ -154,13 +154,13 @@ For a single-hop model:
 
 **Multiple hops:** Access memory repeatedly, updating the internal question state.
 
-\[
-u^{k+1}=u^k+o^k
-\]
+$$
+u^{k+1} = u^k + o^k
+$$
 
-- \(u^k\): state before hop \(k\)
-- \(o^k\): retrieved information
-- \(u^{k+1}\): updated state
+- $u^k$: state before hop $k$
+- $o^k$: retrieved information
+- $u^{k+1}$: updated state
 
 **Important:** More hops provide additional retrieval steps but do not guarantee better reasoning.
 
